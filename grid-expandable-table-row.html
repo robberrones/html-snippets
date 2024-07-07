@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Table With Grid</title>
     <style>
-    .sr-only {
+      .sr-only {
         border: 0 !important;
         clip: rect(1px, 1px, 1px, 1px) !important;
         -webkit-clip-path: inset(50%) !important;
@@ -17,78 +17,86 @@
         position: absolute !important;
         width: 1px !important;
         white-space: nowrap !important;
-    }
-        div {
-            display: flex;
-            justify-content: center; 
-            margin-top: 3rem;
-        }
-        table {
-            border-collapse: collapse;
-            width: 1024px;
-        }
-        tr {
-            display: grid;
-            grid-template-columns: 100px auto auto;
-            grid-template-rows: auto auto;
-            grid-template-areas: 
-            "cell0  cell1  cell2" 
-            "expand expand expand";
-           
-        }
-        th {
-            text-align: left; 
-        }
-        td {
-           
-        }
-       
+      }
+      div {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+      }
+      table {
+        border-collapse: collapse;
+        width: 1024px;
+      }
+      tr {
+        display: grid;
+        grid-template-columns: 100px auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+          "cell0  cell1  cell2"
+          "expand expand expand";
+      }
+      th {
+        text-align: left;
+      }
+      td {
+      }
+      .expandable-content {
+        visibility: hidden;
+      }
+      .expandable-area {
+        grid-area: expand;
+      }
     </style>
     <script type="text/javascript">
-       // const toggleClass = (el, className) => el.classList.toggle(className);
+      // const toggleClass = (el, className) => el.classList.toggle(className);
 
-        //toggleClass(document.querySelector('td.expandable-content'), 'expanded');
-        // The paragraph will not have the 'special' class anymore
+      //toggleClass(document.querySelector('td.expandable-content'), 'expanded');
+      // The paragraph will not have the 'special' class anymore
 
-        var toggleActive = false;
-        function toggleExpand() {
-            if (toggleActive == false) {
-                console.log('toggle Expanded')
-                toggleActive = true;
-                document.querySelector('td.expandable-content').style.visibility = "visible";
-                //toggleClass(document.querySelector('td.expandable-content'), 'expanded');
-            } else {
-                console.log('toggle Collapsed')
-                toggleActive = false;
-                document.querySelector('td.expandable-content').style.visibility = "hidden";
-                //toggleClass(document.querySelector('td.expandable-content'), 'expanded');
-            }
-            
+      var toggleActive = false;
+      function toggleExpand() {
+        if (toggleActive == false) {
+          console.log("toggle Expanded");
+          toggleActive = true;
+          document.querySelector("td.expandable-content").style.visibility =
+            "visible";
+          //toggleClass(document.querySelector('td.expandable-content'), 'expanded');
+        } else {
+          console.log("toggle Collapsed");
+          toggleActive = false;
+          document.querySelector("td.expandable-content").style.visibility =
+            "hidden";
+          //toggleClass(document.querySelector('td.expandable-content'), 'expanded');
         }
+      }
     </script>
-</head>
-<body>
-   <div>
-    <table>
+  </head>
+  <body>
+    <div>
+      <table>
         <thead>
-            <tr>
-                <td aria-hidden="true" class="cell0">&nbsp;</td>
-                <th class="cell1">Name</th>
-                <th class="cell2">Phone</th>
-                <!--th class="break" aria-hidden="true"></th-->
-                <th class="expandable-area sr-only">Notes</th>
-            </tr>
+          <tr>
+            <td aria-hidden="true" class="cell0">&nbsp;</td>
+            <th class="cell1">Name</th>
+            <th class="cell2">Phone</th>
+            <!--th class="break" aria-hidden="true"></th-->
+            <th class="expandable-area sr-only">Notes</th>
+          </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="cell0"><button onclick="toggleExpand();">toggle</button></td>
-                <td class="cell1">Luke Skywalker</td>
-                <td class="cell2">414-555-1212</td>
-                <!--td class="break" aria-hidden="true"></td-->
-                <td class="expandable-content expandable-area">I am a jedi. Like my father before me.</td>
-            </tr>
+          <tr>
+            <td class="cell0">
+              <button onclick="toggleExpand();">toggle</button>
+            </td>
+            <td class="cell1">Luke Skywalker</td>
+            <td class="cell2">414-555-1212</td>
+            <!--td class="break" aria-hidden="true"></td-->
+            <td class="expandable-content expandable-area">
+              I am a jedi. Like my father before me.
+            </td>
+          </tr>
         </tbody>
-    </table>
+      </table>
     </div>
-</body>
+  </body>
 </html>
